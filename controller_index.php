@@ -18,6 +18,8 @@ $certificationArray = [
     4 => "Bac+3 ou supérieure"
 ];
 
+$showForm = true;
+
 if (isset($_POST['submit'])) {
 
     if (isset($_POST['name'])) {
@@ -129,8 +131,10 @@ if (isset($_POST['submit'])) {
     }
 
     if (isset($_POST['certification'])) {
-        if (!array_key_exists($_POST['study'], $certificationArray)) {
+        if (!array_key_exists($_POST['certification'], $certificationArray)) {
             $errorMessages['certification'] = "Veuillez séléctionner un choix dans la liste";
+        } else {
+            $success['certification'] = $_POST['certification'];
         }
     }
 
@@ -201,5 +205,10 @@ if (isset($_POST['submit'])) {
         $errorMessages["informaticQuestion"] = "Veuillez faire un choix";
     } else {
         $success['informaticQuestion'] = $_POST['informaticQuestion'];
+    }
+
+    if (count($errorMessages) == 0) {
+        $nom = htmlspecialchars($_POST['name']);
+        $showForm = false;
     }
 }
