@@ -14,7 +14,7 @@ require_once "controller_index.php";
 </head>
 
 <body>
-    <?php if ($showForm) { ?>
+    <?php if ($showForm == "show") { ?>
 
         <h1 class="text-center display-5">Formulaire d'inscription LA MANU</h1>
 
@@ -239,11 +239,183 @@ require_once "controller_index.php";
             </div>
         </form>
 
-    <?php } else { ?>
+    <?php } else if ($showForm == "information") { ?>
 
-        <p>Nom : <?= htmlspecialchars($success['name']) ?></p>
+        <h1 class="text-center">Vos informations saisis</h1>
+
+        <form action="index.php" method="POST">
+
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="firstname" class="form-label fw-bold">Nom :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['name']) ?></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="lastname" class="form-label fw-bold">Prénom :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['lastname']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="birthday" class="form-label fw-bold">Date de naissance :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['birthday']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="contry" class="form-label fw-bold">Pays de naissance :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['contry']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="nationality" class="form-label fw-bold">Nationalité :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['nationality']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="adress" class="form-label fw-bold">Adresse :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['adress']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="email" class="form-label fw-bold">E-mail :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['email']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 align-items-center">
+                                <label for="phone" class="form-label fw-bold">Téléphone :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['phone']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="certification" class="form-label fw-bold">Diplôme :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['certification']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="poleEmploi" class="form-label fw-bold">Numéro pole emploi :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['poleEmploi']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="badge" class="form-label fw-bold">Nombre de badge :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['badge']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                <label for="codecademyLink" class="form-label fw-bold">Lien codecademy :</label>
+                            </div>
+                            <div class="col">
+                                <p><?= htmlspecialchars($success['link']) ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-2 mt-3">
+                    <label for="heroQuestion" class="form-label fw-bold">Si vous étiez un super héros/une super héroïne, qui seriez-vous et pourquoi ?</label>
+                    <p><?= htmlspecialchars($success['heroQuestion']) ?></p>
+                </div>
+
+                <div class="text-center mt-2 text-center mt-3">
+                    <label for="hackQuestion" class="form-label fw-bold">Racontez-nous un de vos "hacks" (pas forcément technique ou informatique)</label>
+                    <p><?= htmlspecialchars($success['hackQuestion']) ?></p>
+                </div>
+
+                <div class="mt-3 d-flex">
+                    <label for="informaticQuestion" class="form-label fw-bold">Avez vous déjà eu une expérience avec la programmation et/ou l'informatique avant de remplir ce formulaire ?</label>
+                    <p><?= htmlspecialchars($success['informaticQuestion']) ?></p>
+                </div>
+
+                <div class="text-center mt-4" hidden>
+                    <button type="submit" class="btn btn-success" name="modify">Modifier mes informations</button>
+                </div>
+
+            </div>
+
+        </form>
 
     <?php } ?>
+
 
 </body>
 
